@@ -1,3 +1,5 @@
+#En un linux ejecutar el siguiente comando para quitar carateres de control 
+sed 's/\r//g' noticias.csv > noticias01.csv
 #Convertir a minusculas, stop words y lemanizar
 import csv
 import numpy as np #Importamos la utileria de Numpy
@@ -80,7 +82,6 @@ def matriz_resultante(vector,matriz_doc,tam_matriz,tam_max_r):
 carga_stop = stop_word() # Carga de diccionrio de malas palabras
 lema_d = CargarDiccionarioLemas() # Carga de diccionario lematizador
 with open('/home/cgg/Practicas/noticias01.csv', 'r', encoding = 'utf8', errors = 'ignore') as f:
-#with open('/home/cgg/Downloads/noticias.csv', 'r', encoding = 'utf8', errors = 'ignore') as f:
     minusculas = []
     stopwords = []
     matriz_doc = [] 
@@ -94,8 +95,6 @@ with open('/home/cgg/Practicas/noticias01.csv', 'r', encoding = 'utf8', errors =
     tam_max_r = tam_max(matriz_doc,tam_matriz)
     vector = vector_consulta(matriz_doc,tam_matriz)
     matriz_r = matriz_resultante(vector,matriz_doc,tam_matriz,tam_max_r)
-    print (tam_matriz)
-    print ("Tamano max renglon: ",tam_max_r)
     print (vector)
     print ("Tamano vector consulta: " ,len(vector))
     print ("Matriz resultante ")
